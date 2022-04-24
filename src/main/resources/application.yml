@@ -1,0 +1,20 @@
+server:
+  port: 8083
+
+resilience4j:
+  circuitbreaker:
+    backends:
+      silverspoon8:
+        ringBufferSizeInClosedState: 10
+        ringBufferSizeInHalfOpenState: 30
+        waitDurationInOpenState: 10000ms
+        failureRateThreshold: 20
+        registerHealthIndicator: false
+
+silverspoon:
+  client:
+    url: localhost
+    port: 8083
+    timeout: 1
+    socket-timeout: 4000
+    connect-timeout: 1
